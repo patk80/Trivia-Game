@@ -1,32 +1,34 @@
-// let exString = "Sup Rick"
-// let qVar = "?"
+let questionText    = document.getElementById("question");
+let answerOneText   = document.getElementById("answer-1");
+let answerTwoText   = document.getElementById("answer-2");
+let answerThreeText = document.getElementById("answer-3");
+let answerFourText  = document.getElementById("answer-4");
 
-// function addQuestionMark(string, variable){
-//     for(let i = 0; i < 10; i++){
-//         console.log(string += variable);
-//     }
-// }
-
-// addQuestionMark(exString, qVar);
-
-let question    = document.getElementById("question");
-let answerOne   = document.getElementById("answer-1");
-let answerTwo   = document.getElementById("answer-2");
-let answerThree = document.getElementById("answer-3");
-let answerFour  = document.getElementById("answer-4");
-
-
-let question1 = {
+let allQuestions = [
+    {
     question: "q1 - what is this?",
-    answer1: "q1 a1",
-    answer2: "q1 a2",
-    answer3: "q1 a3",
-    answer4: "q1 a4",
-    // correctAnswer: answer3
-}
+    answers: {
+        a: "q1 a1",
+        b: "q1 a2",
+        c: "q1 a3",
+        d: "q1 a4",
+      },
+      correctAnswer: 'c'
+    },
+    {
+    question: "q2 - wsdjsdjlsjdldksd?",
+    answers: {
+        a: "q2 a1",
+        b: "q2 a2",
+        c: "q2 a3",
+        d: "q2 a4",
+        },
+        correctAnswer: 'd'
+    }
+]
 
-question.innerHTML = question1.question;
-answerOne.innerHTML = question1.answer1;
-answerTwo.innerHTML = question1.answer2;
-answerThree.innerHTML = question1.answer3;
-answerFour.innerHTML = question1.answer4;
+questionText.innerHTML    = allQuestions[0].question;
+answerOneText.innerHTML   = allQuestions[0].answers.a;
+answerTwoText.innerHTML   = allQuestions[0].answers.b;
+answerThreeText.innerHTML = allQuestions[0].answers.c;
+answerFourText.innerHTML  = allQuestions[0].answers.d;
