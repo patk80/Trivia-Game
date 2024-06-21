@@ -1,9 +1,10 @@
-let questionText    = document.getElementById("question");
-let answerOneText   = document.getElementById("answer-1");
-let answerTwoText   = document.getElementById("answer-2");
-let answerThreeText = document.getElementById("answer-3");
-let answerFourText  = document.getElementById("answer-4");
-let scoreText       = document.getElementById("score");
+let questionText       = document.getElementById("question");
+let answerOneText      = document.getElementById("answer-1");
+let answerTwoText      = document.getElementById("answer-2");
+let answerThreeText    = document.getElementById("answer-3");
+let answerFourText     = document.getElementById("answer-4");
+let scoreText          = document.getElementById("score"); 
+let submitButton       = document.getElementById("submit-button"); 
 
 let allQuestionsArray = [
     {
@@ -45,6 +46,8 @@ function randomQuestion() {
     answerTwoText.innerHTML   = allQuestionsArray[randomIndex].answers.b;
     answerThreeText.innerHTML = allQuestionsArray[randomIndex].answers.c;
     answerFourText.innerHTML  = allQuestionsArray[randomIndex].answers.d;
+    // remove current question from allQuestionsArray with splice //
+    allQuestionsArray.splice([randomIndex], 1);
 }
 
 randomQuestion();
