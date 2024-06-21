@@ -1,10 +1,11 @@
-let questionText       = document.getElementById("question");
-let answerOneText      = document.getElementById("answer-1");
-let answerTwoText      = document.getElementById("answer-2");
-let answerThreeText    = document.getElementById("answer-3");
-let answerFourText     = document.getElementById("answer-4");
-let scoreText          = document.getElementById("score"); 
-let submitButton       = document.getElementById("submit-button"); 
+let questionText       = document.querySelector("#question");
+let answerOneText      = document.querySelector("#answer-1");
+let answerTwoText      = document.querySelector("#answer-2");
+let answerThreeText    = document.querySelector("#answer-3");
+let answerFourText     = document.querySelector("#answer-4");
+let scoreText          = document.querySelector("#score"); 
+let submitButton       = document.querySelector("#submit-button"); 
+let allButtons         = document.querySelectorAll(".btn");
 
 let allQuestionsArray = [
     {
@@ -49,5 +50,27 @@ function randomQuestion() {
     // remove current question from allQuestionsArray with splice //
     allQuestionsArray.splice([randomIndex], 1);
 }
+
+// Messing around with selected item by user //
+answerOneText.addEventListener("click", function() {
+    answerOneText.style.color = "magenta";
+    answerOneText.style.fontWeight = 'bold';
+});
+
+answerTwoText.addEventListener("click", function() {
+    answerTwoText.style.color = "yellow";
+    answerTwoText.style.fontWeight = 'bold';
+});
+
+answerThreeText.addEventListener("click", function() {
+    answerThreeText.style.color = "red";
+    answerThreeText.style.fontWeight = 'bold';
+});
+
+answerFourText.addEventListener("click", function() {
+    answerFourText.style.color = "blue";
+    answerFourText.style.fontWeight = 'bold';
+});
+
 
 randomQuestion();
