@@ -1,8 +1,8 @@
 let questionText     = document.querySelector("#question");
-let answerOneText    = document.querySelector("#answer-a");
-let answerTwoText    = document.querySelector("#answer-b");
-let answerThreeText  = document.querySelector("#answer-c");
-let answerFourText   = document.querySelector("#answer-d");
+let answerOneText    = document.querySelector("#a");
+let answerTwoText    = document.querySelector("#b");
+let answerThreeText  = document.querySelector("#c");
+let answerFourText   = document.querySelector("#d");
 let scoreText        = document.querySelector("#score"); 
 let submitButton     = document.querySelector("#submit-button"); 
 let allAnswerButtons = document.querySelectorAll(".answer-btn");
@@ -49,43 +49,28 @@ function randomQuestion() {
     answerFourText.innerHTML  = allQuestionsArray[randomIndex].answers.d;
 
 
-    console.log("************ from randomQuestionsArray");
-    console.log(allQuestionsArray[randomIndex].correctAnswer);
-    console.log("************ from randomQuestionsArray");
+    rightAnswer = allQuestionsArray[randomIndex].correctAnswer;
+    return rightAnswer;
     // remove current question from allQuestionsArray with splice //
-    allQuestionsArray.splice([randomIndex], 1);
+    // allQuestionsArray.splice([randomIndex], 1);
 }
 
-// Messing around with selected item by user //
-// answerOneText.addEventListener("click", function() {
-//     answerOneText.style.color = "magenta";
-//     answerOneText.style.fontWeight = 'bold';
-// });
-
-// answerTwoText.addEventListener("click", function() {
-//     answerTwoText.style.color = "yellow";
-//     answerTwoText.style.fontWeight = 'bold';
-// });
-
-// answerThreeText.addEventListener("click", function() {
-//     answerThreeText.style.color = "red";
-//     answerThreeText.style.fontWeight = 'bold';
-// });
-
-// answerFourText.addEventListener("click", function() {
-//     answerFourText.style.color = "blue";
-//     answerFourText.style.fontWeight = 'bold';
-// });
 
 
-function userGuess(){
+function checkUserGuess(){
     for(i of allAnswerButtons) {
         i.addEventListener("click", function(){
-            console.log(this.id);
+         
+            if(this.id === rightAnswer){
+                console.log("YOUR ANSWER MATCHES THE RIGHT ONE");
+            } 
+            else {
+                console.log("your answer is wrong")
+            }
         });
     }
 }
-userGuess();
 
 
+checkUserGuess();
 randomQuestion();
