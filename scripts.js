@@ -5,6 +5,7 @@ let answerThreeText  = document.querySelector("#c");
 let answerFourText   = document.querySelector("#d");
 let scoreText        = document.querySelector("#score"); 
 let submitButton     = document.querySelector("#submit-button"); 
+let nextButton       = document.querySelector("#next-button"); 
 let allAnswerButtons = document.querySelectorAll(".answer-btn");
 
 let allQuestionsArray = [
@@ -40,21 +41,32 @@ let allQuestionsArray = [
         }
 ];
 
+
+
+
+
 function randomQuestion() {
     let randomIndex = Math.floor( Math.random() * (allQuestionsArray.length) );
+    // Update DOM with randomized question/anwers from allQuestionsArray //
     questionText.innerHTML    = allQuestionsArray[randomIndex].question;
     answerOneText.innerHTML   = allQuestionsArray[randomIndex].answers.a;
     answerTwoText.innerHTML   = allQuestionsArray[randomIndex].answers.b;
     answerThreeText.innerHTML = allQuestionsArray[randomIndex].answers.c;
     answerFourText.innerHTML  = allQuestionsArray[randomIndex].answers.d;
-
-
-    rightAnswer = allQuestionsArray[randomIndex].correctAnswer;
-    return rightAnswer;
+    rightAnswer               = allQuestionsArray[randomIndex].correctAnswer;
     // remove current question from allQuestionsArray with splice //
-    // allQuestionsArray.splice([randomIndex], 1);
+    allQuestionsArray.splice([randomIndex], 1);
+    return rightAnswer;
 }
 
+// function CheckAllQuestionsArray(){
+//     if(allQuestionsArray.length === 0) {
+//         console.log("NO MORE QUESTIONS LEFT")
+//     }
+//     else {
+//         randomQuestion();
+//     }
+// }
 
 
 function checkUserGuess(){
@@ -63,13 +75,30 @@ function checkUserGuess(){
          
             if(this.id === rightAnswer){
                 console.log("YOUR ANSWER MATCHES THE RIGHT ONE");
+                // randomQuestion();
             } 
             else {
-                console.log("your answer is wrong")
+                console.log("your answer is wrong");
+                // randomQuestion();
             }
         });
     }
 }
+
+nextButton.addEventListener("click", function(){
+    if(allQuestionsArray.length === 0) {
+        scoreText.style.color = "red";
+        questionText.remove();
+        answerOneText.remove();
+        answerTwoText.remove();
+        answerThreeText.remove();
+        answerFourText.remove();
+        nextButton.remove();
+    } 
+    else {
+        randomQuestion();
+    }
+});
 
 
 checkUserGuess();
