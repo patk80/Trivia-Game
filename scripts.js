@@ -72,33 +72,43 @@ function randomQuestion() {
 function checkUserGuess(){
     for(i of allAnswerButtons) {
         i.addEventListener("click", function(){
-         
-            if(this.id === rightAnswer){
-                console.log("YOUR ANSWER MATCHES THE RIGHT ONE");
-                // randomQuestion();
+
+            if(allQuestionsArray.length === 0) {
+                scoreText.style.color = "red";
+                questionText.remove();
+                answerOneText.remove();
+                answerTwoText.remove();
+                answerThreeText.remove();
+                answerFourText.remove();
+                nextButton.remove();
             } 
+            else if(this.id === rightAnswer){
+                console.log("YOUR ANSWER MATCHES THE RIGHT ONE");
+                randomQuestion();
+            }
+
             else {
                 console.log("your answer is wrong");
-                // randomQuestion();
+                randomQuestion();
             }
         });
     }
 }
 
-nextButton.addEventListener("click", function(){
-    if(allQuestionsArray.length === 0) {
-        scoreText.style.color = "red";
-        questionText.remove();
-        answerOneText.remove();
-        answerTwoText.remove();
-        answerThreeText.remove();
-        answerFourText.remove();
-        nextButton.remove();
-    } 
-    else {
-        randomQuestion();
-    }
-});
+// nextButton.addEventListener("click", function(){
+//     if(allQuestionsArray.length === 0) {
+//         scoreText.style.color = "red";
+//         questionText.remove();
+//         answerOneText.remove();
+//         answerTwoText.remove();
+//         answerThreeText.remove();
+//         answerFourText.remove();
+//         nextButton.remove();
+//     } 
+//     else {
+//         randomQuestion();
+//     }
+// });
 
 
 checkUserGuess();
