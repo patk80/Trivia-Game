@@ -8,6 +8,8 @@ let percentText      = document.querySelector("#percent");
 let allAnswerButtons = document.querySelectorAll(".answer-btn");
 let userCurrentScore = 0;
 
+let currentQuestionNumberText  = document.querySelector("#current-question-number"); 
+let totalQuestionNumberText   = document.querySelector("#total-quesions-number"); 
 let previousQuestionText  = document.querySelector("#previous-question");  
 let previousAnswerText    = document.querySelector("#previous-answer"); 
 let previousQuestionArray = [];
@@ -50,20 +52,27 @@ let allQuestionsArray = [
 ];
 
 const totalQuestions   = allQuestionsArray.length;
+totalQuestionNumberText.innerHTML = allQuestionsArray.length;
+let currentQuestionNumber = 1;
+currentQuestionNumberText.innerHTML = currentQuestionNumber;
 
 function randomQuestion() {
     // If the allQuestionsArray is empty, remove these elements from the DOM //
     if(allQuestionsArray.length === 0) {
-        scoreText.style.color = "red";
+        scoreText.style.color = "green";
         questionText.innerHTML = "Your final score was:";
         answerOneText.remove();
         answerTwoText.remove();
         answerThreeText.remove();
         answerFourText.remove();
+        currentQuestionNumber--;
+        currentQuestionNumberText.innerHTML = currentQuestionNumber;
     }
     // If the allQuestionsArray is not empty, put a random question on the screen //
     else {
         let randomIndex = Math.floor( Math.random() * (allQuestionsArray.length) );
+
+        
         // Update DOM with randomized question/anwers from allQuestionsArray //
         questionText.innerHTML    = allQuestionsArray[randomIndex].question;
         answerOneText.innerHTML   = allQuestionsArray[randomIndex].answers.a;
@@ -91,6 +100,8 @@ function checkUserGuess() {
                 percentText.innerHTML = (userCurrentScore / totalQuestions * (100)).toFixed(1) + "%";
                 previousQuestionText.innerHTML = "You got the last question correct!";
                 previousAnswerText.innerHTML = "";
+                currentQuestionNumber++;
+                currentQuestionNumberText.innerHTML = currentQuestionNumber;
                 randomQuestion();
             }
 
@@ -100,6 +111,8 @@ function checkUserGuess() {
                 percentText.innerHTML = (userCurrentScore / totalQuestions * (100)).toFixed(1) + "%";
                 previousQuestionText.innerHTML = previousQuestionArray[previousQuestionArray.length - 1];
                 previousAnswerText.innerHTML = previousAnswerArray[previousAnswerArray.length - 1];
+                currentQuestionNumber++;
+                currentQuestionNumberText.innerHTML = currentQuestionNumber;
                 randomQuestion();
             }
         });
