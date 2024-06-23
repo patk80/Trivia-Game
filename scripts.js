@@ -95,7 +95,7 @@ function checkUserGuess() {
                 scoreText.innerHTML = userCurrentScore;
                 percentText.innerHTML = (userCurrentScore / totalQuestions * (100)).toFixed(1) + "%";
                 previousQuestionText.classList.add("correct");
-                previousQuestionText.innerHTML = "You got the last question correct!";
+                previousQuestionText.innerHTML = "You got the previous question correct!";
                 previousAnswerText.innerHTML = "";
                 previousQuestionHeading.innerHTML = "";
                 currentQuestionNumber++;
