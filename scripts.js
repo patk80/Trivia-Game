@@ -15,34 +15,37 @@ let previousAnswerArray   = [];
 
 let allQuestionsArray = [
     {
-        question: "q1 - what is this?",
+        question: "Who gave the U.S. The Statue of Liberty?",
         answers: {
-            a: "q1 wrong 1",
-            b: "q1 wrong 2",
-            c: "q1 CORRECT",
-            d: "q1 wrong 3",
+            a: "Austria",
+            b: "Germany",
+            c: "France",
+            d: "Spain",
         },
-        correctAnswer: "c"
+        correctAnswer: "c",
+        correctAnswerText: "France"
     },
     {
-        question: "q2 - wsdjsdjlsjdldksd?",
+        question: "Which U.S. state is home to Acadia National Park?",
         answers: {
-            a: "q2 wrong 1",
-            b: "q2 wrong 2",
-            c: "q2 wrong 3",
-            d: "q2 CORRECT",
+            a: "California",
+            b: "Vermont",
+            c: "Oregon",
+            d: "Maine",
             },
-            correctAnswer: "d"
+            correctAnswer: "d",
+            correctAnswerText: "Maine"
     },
     {
-        question: "q3 - WOLOLO!!!",
+        question: "There are four original colors of Starburst candy: red, orange, yellow, and...?",
         answers: {
-            a: "q3 CORRECT",
-            b: "q3 wrong 1",
-            c: "q3 wrong 2",
-            d: "q3 wrong 3",
+            a: "Pink",
+            b: "Blue",
+            c: "Green",
+            d: "Purple",
             },
-            correctAnswer: "a"
+            correctAnswer: "a",
+            correctAnswerText: "Pink"
         }
 ];
 
@@ -70,7 +73,7 @@ function randomQuestion() {
         rightAnswer               = allQuestionsArray[randomIndex].correctAnswer;
         // add current question and answer into previousQuestionArray //
         previousQuestionArray.push(allQuestionsArray[randomIndex].question);
-        previousAnswerArray.push(allQuestionsArray[randomIndex].correctAnswer);
+        previousAnswerArray.push(allQuestionsArray[randomIndex].correctAnswerText);
         // remove current question from allQuestionsArray with splice //
         allQuestionsArray.splice([randomIndex], 1);
         return rightAnswer;
@@ -86,7 +89,7 @@ function checkUserGuess() {
                 userCurrentScore++;
                 scoreText.innerHTML = userCurrentScore;
                 percentText.innerHTML = (userCurrentScore / totalQuestions * (100)).toFixed(1);
-                previousQuestionText.innerHTML = "";
+                previousQuestionText.innerHTML = "You got the last question correct!";
                 previousAnswerText.innerHTML = "";
                 randomQuestion();
             }
