@@ -1,8 +1,20 @@
+#question {
+    border: 6px solid cyan;
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+p {
+    text-align: right;
+}
+
 #answers-div {
     display: flex;
     flex-direction: column;
 }
 
-.btn {
+.answer-btn {
     margin-top: 40px;
+    border: 3px solid purple !important;
 }
