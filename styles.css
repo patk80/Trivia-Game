@@ -1,3 +1,8 @@
-/* * { 
-    color: red;
-} */
+#answers-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    margin-top: 40px;
+}
