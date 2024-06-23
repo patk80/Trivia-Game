@@ -1,19 +1,19 @@
-let questionText     = document.querySelector("#question");
-let answerOneText    = document.querySelector("#a");
-let answerTwoText    = document.querySelector("#b");
-let answerThreeText  = document.querySelector("#c");
-let answerFourText   = document.querySelector("#d");
-let scoreText        = document.querySelector("#score"); 
-let percentText      = document.querySelector("#percent");   
-let allAnswerButtons = document.querySelectorAll(".answer-btn");
-let userCurrentScore = 0;
-
-let currentQuestionNumberText  = document.querySelector("#current-question-number"); 
+let questionText              = document.querySelector("#question");
+let answerOneText             = document.querySelector("#a");
+let answerTwoText             = document.querySelector("#b");
+let answerThreeText           = document.querySelector("#c");
+let answerFourText            = document.querySelector("#d");
+let scoreText                 = document.querySelector("#score"); 
+let percentText               = document.querySelector("#percent");   
+let allAnswerButtons          = document.querySelectorAll(".answer-btn");
+let currentQuestionNumberText = document.querySelector("#current-question-number"); 
 let totalQuestionNumberText   = document.querySelector("#total-quesions-number"); 
-let previousQuestionText  = document.querySelector("#previous-question");  
-let previousAnswerText    = document.querySelector("#previous-answer"); 
-let previousQuestionArray = [];
-let previousAnswerArray   = [];
+let previousQuestionHeading   = document.querySelector("#previous-question-and-answer-heading");  
+let previousQuestionText      = document.querySelector("#previous-question");  
+let previousAnswerText        = document.querySelector("#previous-answer");
+let userCurrentScore          = 0;
+let previousQuestionArray     = [];
+let previousAnswerArray       = [];
 
 let allQuestionsArray = [
     {
@@ -71,8 +71,6 @@ function randomQuestion() {
     // If the allQuestionsArray is not empty, put a random question on the screen //
     else {
         let randomIndex = Math.floor( Math.random() * (allQuestionsArray.length) );
-
-        
         // Update DOM with randomized question/anwers from allQuestionsArray //
         questionText.innerHTML    = allQuestionsArray[randomIndex].question;
         answerOneText.innerHTML   = allQuestionsArray[randomIndex].answers.a;
@@ -94,25 +92,27 @@ function checkUserGuess() {
         i.addEventListener("click", function() {
 
             if(this.id === rightAnswer) {
-                console.log("YOUR ANSWER MATCHES THE RIGHT ONE");
                 userCurrentScore++;
                 scoreText.innerHTML = userCurrentScore;
                 percentText.innerHTML = (userCurrentScore / totalQuestions * (100)).toFixed(1) + "%";
+                previousQuestionText.classList.add("correct");
                 previousQuestionText.innerHTML = "You got the last question correct!";
                 previousAnswerText.innerHTML = "";
+                previousQuestionHeading.innerHTML = "";
                 currentQuestionNumber++;
                 currentQuestionNumberText.innerHTML = currentQuestionNumber;
                 randomQuestion();
             }
 
             else {
-                console.log("your guess was wrong");
                 scoreText.innerHTML = userCurrentScore;
                 percentText.innerHTML = (userCurrentScore / totalQuestions * (100)).toFixed(1) + "%";
                 previousQuestionText.innerHTML = previousQuestionArray[previousQuestionArray.length - 1];
                 previousAnswerText.innerHTML = previousAnswerArray[previousAnswerArray.length - 1];
+                previousQuestionText.classList.remove("correct");
                 currentQuestionNumber++;
                 currentQuestionNumberText.innerHTML = currentQuestionNumber;
+                previousQuestionHeading.innerHTML = "The previous question and answer were:"
                 randomQuestion();
             }
         });
