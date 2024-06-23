@@ -88,7 +88,7 @@ function checkUserGuess() {
                 console.log("YOUR ANSWER MATCHES THE RIGHT ONE");
                 userCurrentScore++;
                 scoreText.innerHTML = userCurrentScore;
-                percentText.innerHTML = (userCurrentScore / totalQuestions * (100)).toFixed(1);
+                percentText.innerHTML = (userCurrentScore / totalQuestions * (100)).toFixed(1) + "%";
                 previousQuestionText.innerHTML = "You got the last question correct!";
                 previousAnswerText.innerHTML = "";
                 randomQuestion();
@@ -97,7 +97,7 @@ function checkUserGuess() {
             else {
                 console.log("your guess was wrong");
                 scoreText.innerHTML = userCurrentScore;
-                percentText.innerHTML = (userCurrentScore / totalQuestions * (100)).toFixed(1);
+                percentText.innerHTML = (userCurrentScore / totalQuestions * (100)).toFixed(1) + "%";
                 previousQuestionText.innerHTML = previousQuestionArray[previousQuestionArray.length - 1];
                 previousAnswerText.innerHTML = previousAnswerArray[previousAnswerArray.length - 1];
                 randomQuestion();

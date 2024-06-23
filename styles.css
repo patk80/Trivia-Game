@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(251, 226, 250);
+}
+
 #question {
     border: 6px solid cyan;
     padding: 10px;
