@@ -4,9 +4,14 @@ let answerTwoText    = document.querySelector("#b");
 let answerThreeText  = document.querySelector("#c");
 let answerFourText   = document.querySelector("#d");
 let scoreText        = document.querySelector("#score"); 
-let percentText      = document.querySelector("#percent");  
+let percentText      = document.querySelector("#percent");   
 let allAnswerButtons = document.querySelectorAll(".answer-btn");
 let userCurrentScore = 0;
+
+let previousQuestionText  = document.querySelector("#previous-question");  
+let previousAnswerText    = document.querySelector("#previous-answer"); 
+let previousQuestionArray = [];
+let previousAnswerArray   = [];
 
 let allQuestionsArray = [
     {
@@ -63,6 +68,9 @@ function randomQuestion() {
         answerThreeText.innerHTML = allQuestionsArray[randomIndex].answers.c;
         answerFourText.innerHTML  = allQuestionsArray[randomIndex].answers.d;
         rightAnswer               = allQuestionsArray[randomIndex].correctAnswer;
+        // add current question and answer into previousQuestionArray //
+        previousQuestionArray.push(allQuestionsArray[randomIndex].question);
+        previousAnswerArray.push(allQuestionsArray[randomIndex].correctAnswer);
         // remove current question from allQuestionsArray with splice //
         allQuestionsArray.splice([randomIndex], 1);
         return rightAnswer;
@@ -78,12 +86,17 @@ function checkUserGuess() {
                 userCurrentScore++;
                 scoreText.innerHTML = userCurrentScore;
                 percentText.innerHTML = (userCurrentScore / totalQuestions * (100)).toFixed(1);
+                previousQuestionText.innerHTML = "";
+                previousAnswerText.innerHTML = "";
                 randomQuestion();
             }
 
             else {
+                console.log("your guess was wrong");
                 scoreText.innerHTML = userCurrentScore;
                 percentText.innerHTML = (userCurrentScore / totalQuestions * (100)).toFixed(1);
+                previousQuestionText.innerHTML = previousQuestionArray[previousQuestionArray.length - 1];
+                previousAnswerText.innerHTML = previousAnswerArray[previousAnswerArray.length - 1];
                 randomQuestion();
             }
         });
