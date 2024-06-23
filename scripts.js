@@ -90,7 +90,6 @@ function randomQuestion() {
 function checkUserGuess() {
     for(i of allAnswerButtons) {
         i.addEventListener("click", function() {
-
             if(this.id === rightAnswer) {
                 userCurrentScore++;
                 scoreText.innerHTML = userCurrentScore;
@@ -103,7 +102,6 @@ function checkUserGuess() {
                 currentQuestionNumberText.innerHTML = currentQuestionNumber;
                 randomQuestion();
             }
-
             else {
                 scoreText.innerHTML = userCurrentScore;
                 percentText.innerHTML = (userCurrentScore / totalQuestions * (100)).toFixed(1) + "%";
