@@ -4,8 +4,7 @@ let answerTwoText    = document.querySelector("#b");
 let answerThreeText  = document.querySelector("#c");
 let answerFourText   = document.querySelector("#d");
 let scoreText        = document.querySelector("#score"); 
-let percentText      = document.querySelector("#percent"); 
-let submitButton     = document.querySelector("#submit-button"); 
+let percentText      = document.querySelector("#percent");  
 let allAnswerButtons = document.querySelectorAll(".answer-btn");
 let userCurrentScore = 0;
 
@@ -48,7 +47,7 @@ function randomQuestion() {
     // If the allQuestionsArray is empty, remove these elements from the DOM //
     if(allQuestionsArray.length === 0) {
         scoreText.style.color = "red";
-        questionText.remove();
+        questionText.innerHTML = "Your final score was:";
         answerOneText.remove();
         answerTwoText.remove();
         answerThreeText.remove();
@@ -70,11 +69,11 @@ function randomQuestion() {
     }
 }
 
-function checkUserGuess(){
+function checkUserGuess() {
     for(i of allAnswerButtons) {
-        i.addEventListener("click", function(){
+        i.addEventListener("click", function() {
 
-            if(this.id === rightAnswer){
+            if(this.id === rightAnswer) {
                 console.log("YOUR ANSWER MATCHES THE RIGHT ONE");
                 userCurrentScore++;
                 scoreText.innerHTML = userCurrentScore;
