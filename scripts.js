@@ -48,6 +48,17 @@ let allQuestionsArray = [
             },
             correctAnswer: "a",
             correctAnswerText: "Pink"
+        },
+        {
+        question: "What does a barometer measure?",
+        answers: {
+            a: "Sound",
+            b: "Light",
+            c: "Atmospheric Pressure",
+            d: "Humidity",
+            },
+            correctAnswer: "c",
+            correctAnswerText: "Atmospheric Pressure"
         }
 ];
 
