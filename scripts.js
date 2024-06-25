@@ -28,15 +28,15 @@ let allQuestionsArray = [
         correctAnswerText: "Structured Query Language"
     },
     {
-        question: "Which U.S. state is home to Acadia National Park?",
+        question: "Which SQL statement is used to extract data from a database?",
         answers: {
-            a: "California",
-            b: "Vermont",
-            c: "Oregon",
-            d: "Maine",
+            a: "EXTRACT",
+            b: "GET",
+            c: "OPEN",
+            d: "SELECT",
             },
             correctAnswer: "d",
-            correctAnswerText: "Maine"
+            correctAnswerText: "SELECT"
     },
     {
         question: "There are four original colors of Starburst candy: red, orange, yellow, and...?",
