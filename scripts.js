@@ -50,15 +50,15 @@ let allQuestionsArray = [
             correctAnswerText: "UPDATE"
         },
         {
-        question: "What does a barometer measure?",
+        question: "Which SQL statement is used to delete data from a database?",
         answers: {
-            a: "Sound",
-            b: "Light",
-            c: "Atmospheric Pressure",
-            d: "Humidity",
+            a: "REMOVE",
+            b: "COLLAPSE",
+            c: "DELETE",
+            d: "DESTROY",
             },
             correctAnswer: "c",
-            correctAnswerText: "Atmospheric Pressure"
+            correctAnswerText: "DELETE"
         }
 ];
 
