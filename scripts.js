@@ -19,13 +19,13 @@ let allQuestionsArray = [
     {
         question: "Who gave the U.S. The Statue of Liberty?",
         answers: {
-            a: "Austria",
-            b: "Germany",
-            c: "France",
-            d: "Spain",
+            a: "Strong Quantity Language",
+            b: "Structured Question Language",
+            c: "Structured Query Language",
+            d: "Strong Qualitative Language",
         },
         correctAnswer: "c",
-        correctAnswerText: "France"
+        correctAnswerText: "Structured Query Language"
     },
     {
         question: "Which U.S. state is home to Acadia National Park?",
