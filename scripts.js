@@ -39,15 +39,15 @@ let allQuestionsArray = [
             correctAnswerText: "SELECT"
     },
     {
-        question: "There are four original colors of Starburst candy: red, orange, yellow, and...?",
+        question: "Which SQL statement is used to update data in a database?",
         answers: {
-            a: "Pink",
-            b: "Blue",
-            c: "Green",
-            d: "Purple",
+            a: "UPDATE",
+            b: "SAVE",
+            c: "SAVE AS",
+            d: "MODIFY",
             },
             correctAnswer: "a",
-            correctAnswerText: "Pink"
+            correctAnswerText: "UPDATE"
         },
         {
         question: "What does a barometer measure?",
