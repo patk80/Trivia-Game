@@ -17,7 +17,7 @@ let previousAnswerArray       = [];
 
 let allQuestionsArray = [
     {
-        question: "Who gave the U.S. The Statue of Liberty?",
+        question: "What does SQL stand for?",
         answers: {
             a: "Strong Quantity Language",
             b: "Structured Question Language",
