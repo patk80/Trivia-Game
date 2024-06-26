@@ -59,6 +59,17 @@ let allQuestionsArray = [
             },
             correctAnswer: "c",
             correctAnswerText: "DELETE"
+        },
+        {
+        question: "Full form of RDBMS is",
+        answers: {
+            a: "Regional district management system",
+            b: "Relational database management system",
+            c: "Regular database management system",
+            d: "Regular district machine system",
+            },
+            correctAnswer: "b",
+            correctAnswerText: "Relational database management system"
         }
 ];
 
